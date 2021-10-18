@@ -1,9 +1,11 @@
-version: "3"
+version: "3.9"
 services:
   hub:
     image: selenium/hub
     ports:
       - "4444:4444"
+    profiles:
+      - grid
   chrome:
     image: selenium/node-chrome
     shm_size: '1gb'
@@ -11,6 +13,8 @@ services:
       - hub
     environment:
       - HUB_HOST=hub
+    profiles:
+      - grid
   firefox:
     image: selenium/node-firefox
     shm_size: '1gb'
@@ -18,28 +22,31 @@ services:
       - hub
     environment:
       - HUB_HOST=hub
+    profiles:
+      - grid
   search-feature:
     image: brandonwilliams2/selenium-docker
-    depends_on:
-      - chrome
-      - firefox
     environment:
       - HUB_HOST=hub
       - FEATURE=2-search-feature.xml
       - BROWSER=chrome
     volumes:
     - "./test-output/search-feature:/usr/share/selenium-docker/test-output"
+    profiles:
+      - test
+
   book-flight-feature:
     image: brandonwilliams2/selenium-docker
-    depends_on:
-      - chrome
-      - firefox
     environment:
       - HUB_HOST=hub
       - FEATURE=1-book-flight-feature.xml
       - BROWSER=firefox
     volumes:
       - "./test-output/book-flight-feature:/usr/share/selenium-docker/test-output"
+    profiles:
+      - test
+
+
 
 
 

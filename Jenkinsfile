@@ -1,13 +1,17 @@
 pipeline{
     agent any
     stages{
-        stage("Run Test"){
+        stage("Start Grid"){
             steps{
-                sh "echo $PWD"
-                sh "docker-compose up"
+                sh "docker-compose --profile grid up -d"
             }
         }
-        stage("Bring Grid Down"){
+        stage("Run Tests"){
+            steps{
+                sh "docker-compose --profile test up"
+            }
+        }
+        stage("Stop Grid"){
             steps{
                 sh "docker-compose down"
             }
