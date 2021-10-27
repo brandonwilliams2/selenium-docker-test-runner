@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("Start Grid"){
             steps{
-                sh "docker-compose --profile grid up -d"
+                sh "docker ps"
             }
         }
         stage("Run Tests"){
