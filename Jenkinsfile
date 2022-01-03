@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("Start Grid"){
             steps{
-                sh "docker ps"
+                sh "docker-compose --profile grid up -d --no-color"
             }
         }
         stage("Run Tests"){
