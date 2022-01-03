@@ -8,7 +8,7 @@ pipeline{
         }
         stage("Run Tests"){
             steps{
-                sh "docker-compose --profile test up"
+                sh "docker-compose --profile test up --no-colors"
             }
         }
         stage("Stop Grid"){
