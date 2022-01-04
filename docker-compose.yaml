@@ -1,14 +1,14 @@
 version: "3.9"
 services:
   hub:
-    image: selenium/hub
+    image: selenium/hub:3
     ports:
       - "4444:4444"
     profiles:
       - grid
   chrome:
-    image: selenium/node-chrome
-    shm_size: '1gb'
+    image: selenium/node-chrome:3
+    shm_size: '2gb'
     depends_on:
       - hub
     environment:
@@ -16,8 +16,8 @@ services:
     profiles:
       - grid
   firefox:
-    image: selenium/node-firefox
-    shm_size: '1gb'
+    image: selenium/node-firefox:3
+    shm_size: '2gb'
     depends_on:
       - hub
     environment:
