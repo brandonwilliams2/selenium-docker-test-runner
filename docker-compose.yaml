@@ -29,7 +29,7 @@ services:
       - FEATURE=2-search-feature.xml
       - BROWSER=chrome
     volumes:
-    - "$HOME/Workspace/Projects/selenium-docker-test-runner/test-output/search-feature:/usr/share/selenium-docker/test-output"
+    - ./output/search-feature-result:/usr/share/selenium-docker/test-output
     profiles:
       - test
   book-flight-feature:
@@ -39,7 +39,7 @@ services:
       - FEATURE=1-book-flight-feature.xml
       - BROWSER=firefox
     volumes:
-      - "$HOME/Workspace/Projects/selenium-docker-test-runner/test-output/book-flight-feature:/usr/share/selenium-docker/test-output"
+      - ./book-flight-feature-result:/usr/share/selenium-docker/test-output
     profiles:
       - test
 
