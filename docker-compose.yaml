@@ -39,7 +39,7 @@ services:
       - FEATURE=1-book-flight-feature.xml
       - BROWSER=firefox
     volumes:
-      - .output/book-flight-feature-result:/usr/share/selenium-docker/test-output1
+      - .output/book-flight-feature-result:/usr/share/selenium-docker/test-output
     profiles:
       - test
 
