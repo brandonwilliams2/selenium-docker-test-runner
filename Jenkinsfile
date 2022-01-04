@@ -11,10 +11,11 @@ pipeline{
                 sh "docker-compose --profile test up --no-color"
             }
         }
-        stage("Stop Grid"){
-            steps{
-                sh "docker-compose down"
-            }
+    }
+    post{
+        always{
+            archiveArtifacts artifacts: 'test-output/**'
+            sh "docker-compose down"
         }
     }
 }

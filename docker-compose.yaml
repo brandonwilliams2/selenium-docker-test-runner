@@ -2,8 +2,6 @@ version: "3.9"
 services:
   hub:
     image: selenium/hub:3
-    ports:
-      - "4444:4444"
     profiles:
       - grid
   chrome:
@@ -34,7 +32,6 @@ services:
     - "$HOME/Workspace/Projects/selenium-docker-test-runner/test-output/search-feature:/usr/share/selenium-docker/test-output"
     profiles:
       - test
-
   book-flight-feature:
     image: brandonwilliams2/selenium-docker
     environment:
