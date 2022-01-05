@@ -4,8 +4,6 @@ services:
     image: selenium/hub:3
     profiles:
       - grid
-    networks:
-      - grid
 
   chrome:
     image: selenium/node-chrome:3
@@ -16,8 +14,6 @@ services:
       - HUB_HOST=hub
     profiles:
       - grid
-    networks:
-      - grid
 
   firefox:
     image: selenium/node-firefox:3
@@ -27,8 +23,6 @@ services:
     environment:
       - HUB_HOST=hub
     profiles:
-      - grid
-    networks:
       - grid
 
   search-feature:
@@ -41,8 +35,6 @@ services:
       - "./output/search-feature-result:/usr/share/selenium-docker/test-output"
     profiles:
       - test
-    networks:
-      - grid
 
   book-flight-feature:
     image: brandonwilliams2/selenium-docker
@@ -54,14 +46,8 @@ services:
       - "./output/book-flight-feature-result:/usr/share/selenium-docker/test-output"
     profiles:
       - test
-    networks:
-      - grid
 
-networks:
-  grid:
-profiles:
-  grid:
-  test:
+
 
 
 
