@@ -8,20 +8,20 @@ pipeline{
         }
         stage("Start Grid"){
             steps{
-                sh "docker-compose up -d hub chrome firefox --no-color"
+                sh "docker-compose --profile grid up -d --no-color"
             }
         }
         stage("Run Tests"){
             steps{
-                sh "docker-compose up search-feature book-flight-feature  --no-color"
+                sh "docker-compose --profile test up --no-color"
             }
         }
     }
     post{
         always{
             archiveArtifacts artifacts: 'output/**'
+            sh "docker-compose --profile test down"
             sh "docker-compose --profile grid down"
-
         }
     }
 }

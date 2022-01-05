@@ -2,6 +2,8 @@ version: "3.9"
 services:
   hub:
     image: selenium/hub:3
+    profiles:
+      - grid
     networks:
       - grid
 
@@ -12,6 +14,8 @@ services:
       - hub
     environment:
       - HUB_HOST=hub
+    profiles:
+      - grid
     networks:
       - grid
 
@@ -22,6 +26,8 @@ services:
       - hub
     environment:
       - HUB_HOST=hub
+    profiles:
+      - grid
     networks:
       - grid
 
@@ -32,7 +38,9 @@ services:
       - FEATURE=2-search-feature.xml
       - BROWSER=chrome
     volumes:
-    - "./output/search-feature-result:/usr/share/selenium-docker/test-output"
+      - "./output/search-feature-result:/usr/share/selenium-docker/test-output"
+    profiles:
+      - test
     networks:
       - grid
 
@@ -44,11 +52,16 @@ services:
       - BROWSER=firefox
     volumes:
       - "./output/book-flight-feature-result:/usr/share/selenium-docker/test-output"
+    profiles:
+      - test
     networks:
       - grid
 
 networks:
   grid:
+profiles:
+  grid:
+  test:
 
 
 
