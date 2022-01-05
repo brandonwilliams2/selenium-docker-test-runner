@@ -20,8 +20,7 @@ pipeline{
     post{
         always{
             archiveArtifacts artifacts: 'output/**'
-            sh "docker-compose --profile grid down"
-            sh "docker-compose --profile test down"
+            sh "docker-compose down"
         }
     }
 }
