@@ -1,6 +1,11 @@
 pipeline{
     agent any
     stages{
+        stage("Pull Latest Image"){
+            steps{
+                sh "docker pull brandonwilliams2/selenium-docker"
+            }
+        }
         stage("Start Grid"){
             steps{
                 sh "docker-compose --profile grid up -d --no-color"
