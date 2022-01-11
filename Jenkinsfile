@@ -14,10 +14,7 @@ pipeline{
         stage("Run Tests"){
             steps{
                 sh '''
-                    docker-compose up
-                    search-feature
-                    book-flight-feature
-                    --no-color"
+                    docker-compose up search-feature book-flight-feature  --no-color"
                 '''
             }
         }
