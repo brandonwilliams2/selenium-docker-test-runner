@@ -5,7 +5,7 @@
 This project consists of a docker-compose.yml to quickly spin-up a selenium grid and run tests on it. Additionally, there is a Jenkinsfile which Jenkins jobs will use to pull the latest test script image from docker hub, start the selenium grid, run the tests, and then bring everything down and archive the test results
 
 ## Docker-Compose.yml
-####Services:
+#### Services:
 - hub
 - chrome
 - firefox
