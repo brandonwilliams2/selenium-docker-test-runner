@@ -26,9 +26,23 @@ ex:
 This command will bring up 4 instances of the chrome service and 4 instances of the firefox service in background mode( -d ).
 
 #### Connecting to an External Hub / Node
+To connect an external node to our dockerized hub:
+1. Make sure the hub is running `docker-compose up -d hub`
+2. One or more Nodes can be started in this setup, and the server will detect the available drivers that it can use from the System PATH.
+
+`java -jar selenium-server-<version>.jar -role node -hub http://<host-ip>:4444/grid/register`
+
+`appium -p 4725 --nodeconfig <path/to/node-config.json>`
+
+To connect an external hub to our dockerized nodes:
+1. Start the external hub
+2. Start the chrome and firefox services
+
+NOTE: make sure to update the docker-compose.yml to set the service environment variables for HUB_HOST to the ip / hostname of the external hub machine
+
 #### Running tests inside a Docker Container
 
-
+https://www.selenium.dev/documentation/grid/
 
 
 
