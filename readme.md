@@ -18,7 +18,7 @@ NOTE: there are two docker-compose.yml files located in this project. One is for
 
 ##### Scaling Services
 In order to execute tests in parallel, it is necessary to scale the number of browser instances to match the desired number of tests you want to run.
-To scale your selenium grid services use --scale flag with your docker-compose up command. 
+To scale your selenium grid services use the --scale flag with your docker-compose up command. 
 
 ex:
 `docker-compose up -d --scale chrome=4 --scale firefox=4`
