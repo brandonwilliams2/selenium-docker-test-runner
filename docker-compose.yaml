@@ -27,22 +27,22 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
 
   search-feature:
-    image: brandonwilliams2/selenium-docker
+    image: brandonwilliams2/java-selenium
     environment:
       - HUB_HOST=hub
       - FEATURE=2-search-feature.xml
       - BROWSER=chrome
     volumes:
-    - "./output/search-feature-result:/usr/share/selenium-docker/test-output"
+    - "./output/search-feature-result:/usr/share/java-selenium/test-output"
 
   book-flight-feature:
-    image: brandonwilliams2/selenium-docker
+    image: brandonwilliams2/java-selenium
     environment:
       - HUB_HOST=hub
       - FEATURE=1-book-flight-feature.xml
       - BROWSER=firefox
     volumes:
-      - "./output/book-flight-feature-result:/usr/share/selenium-docker/test-output"
+      - "./output/book-flight-feature-result:/usr/share/java-selenium/test-output"
 
 
 

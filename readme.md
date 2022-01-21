@@ -35,12 +35,18 @@ To connect an external node to our dockerized hub:
 `appium -p 4725 --nodeconfig <path/to/node-config.json>`
 
 To connect an external hub to our dockerized nodes:
-1. Start the external hub
+1. Start the external hub `java -jar selenium-server-standalone-<version>.jar -role hub`
 2. Start the chrome and firefox services
 
 NOTE: make sure to update the docker-compose.yml to set the service environment variables for HUB_HOST to the ip / hostname of the external hub machine
 
 #### Running tests inside a Docker Container
+
+##### Docker-Compose
+
+## Jenkinsfile
+
+
 
 https://www.selenium.dev/documentation/grid/
 
