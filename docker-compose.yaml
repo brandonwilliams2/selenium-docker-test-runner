@@ -2,8 +2,8 @@ version: "3.9"
 services:
   hub:
     image: selenium/hub:4.1.0
-    # ports:
-    # - 4444:4444
+    ports:
+     - 4444:4444
     # port mapping is optional and should only be used for testing locally to see the status of the grid
 
   chrome:
