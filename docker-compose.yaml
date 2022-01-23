@@ -15,6 +15,8 @@ services:
       - SE_EVENT_BUS_HOST=hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    # volumes:
+    #  - ./downloads:/home/seluser/Downloads
 
   firefox:
     image: selenium/node-firefox:4.1.0
@@ -25,11 +27,13 @@ services:
       - SE_EVENT_BUS_HOST=hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    # volumes:
+    #  - ./downloads:/home/seluser/Downloads
 
   search-feature:
     image: brandonwilliams2/java-selenium
     environment:
-      - HUB_HOST=hub
+      - HUB_HOST=hub #ip or hostname of host where the hub is running
       - FEATURE=2-search-feature.xml
       - BROWSER=chrome
     volumes:
