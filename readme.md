@@ -46,11 +46,26 @@ NOTE: make sure to update the docker-compose.yml to set the service environment 
 
 #### Running tests inside a Docker Container
 
+Use docker-compose up to quickly spin-up a selenium grid and run tests on it, archive the results and docker compose down bring everything down.
+
+First the selenium grid will start. When the test scripts containers are started they will start the healthcheck.sh. The healthcheck.sh will wait until the hub is up and ready then run the tests:
+
+```
+java -cp java-selenium.jar:java-selenium-tests.jar:libs/* \
+    -DHUB_HOST=$HUB_HOST \
+    -DBROWSER=$BROWSER \
+    org.testng.TestNG $FEATURE
+```
+
+This command places our page object .jar, test .jar, and external dependency jars on the class path and sets the environment variables for the hub host, the browser, and test feature -- all passed in from the docker-compose.yml. The $FEATURE points to the test-suite.xml file which has all to the test case parameters.
+
 ##### Docker-Compose
+
+docker compose is used for our container orchestration. 
 
 ## Jenkinsfile
 
-
+The Jenkins file will be used be a Jenkins job execution agent. It will execute the scripts listed in the order of the stages.
 
 https://www.selenium.dev/documentation/grid/
 
