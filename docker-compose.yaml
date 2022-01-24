@@ -37,7 +37,7 @@ services:
       - FEATURE=2-search-feature.xml
       - BROWSER=chrome
     volumes:
-    - "./output/search-feature-result:/usr/share/java-selenium/test-output"
+    - "./test-output/search-feature-result:/usr/share/java-selenium/test-output"
 
   book-flight-feature:
     image: brandonwilliams2/java-selenium
@@ -46,7 +46,7 @@ services:
       - FEATURE=1-book-flight-feature.xml
       - BROWSER=firefox
     volumes:
-      - "./output/book-flight-feature-result:/usr/share/java-selenium/test-output"
+      - "./test-output/book-flight-feature-result:/usr/share/java-selenium/test-output"
 
 
 
