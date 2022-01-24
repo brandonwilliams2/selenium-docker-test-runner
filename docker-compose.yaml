@@ -16,7 +16,7 @@ services:
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
     # volumes:
-    #  - ./downloads:/home/seluser/Downloads
+    #  - ./downloads:/home/seluser/Downloads # for saving file downloads from the browser imaage
 
   firefox:
     image: selenium/node-firefox:4.1.0
@@ -42,7 +42,7 @@ services:
   book-flight-feature:
     image: brandonwilliams2/java-selenium
     environment:
-      - HUB_HOST=hub
+      - HUB_HOST=hub #ip or hostname of host where the hub is running
       - FEATURE=1-book-flight-feature.xml
       - BROWSER=firefox
     volumes:
