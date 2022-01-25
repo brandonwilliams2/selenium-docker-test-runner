@@ -44,6 +44,15 @@ To connect an external hub to our dockerized nodes:
 
 NOTE: make sure to update the docker-compose.yml to set the service environment variables for HUB_HOST to the ip / hostname of the external hub machine
 
+The Selenium-Grid default node config only supports Firefox, Chrome, and IE. if you want to test against additional browsers like Edge, you have to create a custom node config file and point to it (and the webdriver) when running the java command to register the node.
+
+Ex for ms edge:
+```
+   java -Dwebdriver.edge.driver="/path/to/msedgedriver.exe" -jar selenium-server-standalone-3.141.59.jar -role node -nodeConfig "/path/to/custom-node-config.json"
+```
+
+see: [example-custom-node-config.json](https://github.com/brandonwilliams2/selenium-test-runner/blob/master/example-custome-node-config.json)
+
 #### Running tests inside a Docker Container
 
 Use docker-compose up to quickly spin-up a selenium grid and run tests on it, archive the results and docker compose down bring everything down.
