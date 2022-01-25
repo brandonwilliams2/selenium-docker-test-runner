@@ -51,7 +51,7 @@ Ex for ms edge:
    java -Dwebdriver.edge.driver="/path/to/msedgedriver.exe" -jar selenium-server-standalone-3.141.59.jar -role node -nodeConfig "/path/to/custom-node-config.json"
 ```
 
-see: [example-custom-node-config.json](https://github.com/brandonwilliams2/selenium-test-runner/blob/master/example-custome-node-config.json)
+see: [example-custom-node-config.json](./example-custom-node-config.json)
 
 #### Running tests inside a Docker Container
 
