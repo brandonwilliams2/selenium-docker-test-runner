@@ -2,9 +2,10 @@ version: "3.9"
 services:
   hub:
     image: selenium/hub:4.1.0
-    ports:
-      - 4444:4444
-    # port mapping is optional and should only be used for testing locally to see the status of the grid
+#    ports:
+#      - 4444:4444
+    # port mapping is optional and should only be used for testing locally to see the status of the grid and to connect
+    # to external nodes
 
   chrome:
     image: selenium/node-chrome:4.1.0
@@ -47,6 +48,7 @@ services:
       - BROWSER=firefox
     volumes:
       - "./output/book-flight-feature-result:/usr/share/java-selenium/test-output"
+
 
 
 
